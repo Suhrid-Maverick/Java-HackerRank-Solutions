@@ -1,0 +1,16 @@
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        int count = 1;
+
+        while ((line = br.readLine()) != null) {
+            sb.append(count++).append(' ').append(line).append('\n');
+        }
+
+        System.out.print(sb);
+    }
+}
