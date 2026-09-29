@@ -1,0 +1,11 @@
+import java.io.*;
+import java.math.BigInteger;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BigInteger n = new BigInteger(br.readLine().trim());
+
+        System.out.println(n.isProbablePrime(10) ? "prime" : "not prime");
+    }
+}
