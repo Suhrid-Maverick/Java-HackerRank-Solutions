@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        if (s == null) s = "";
+
+        String[] tokens = s.split("[^A-Za-z]+");
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+
+        for (String token : tokens) {
+            if (!token.isEmpty()) {
+                count++;
+                sb.append(token).append('\n');
+            }
+        }
+
+        System.out.println(count);
+        System.out.print(sb);
+    }
+}
