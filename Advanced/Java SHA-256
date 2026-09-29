@@ -1,0 +1,20 @@
+import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class Solution {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine().trim();
+
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] hash = md.digest(s.getBytes("UTF-8"));
+
+        StringBuilder sb = new StringBuilder(hash.length * 2);
+        for (byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        System.out.println(sb);
+    }
+}
