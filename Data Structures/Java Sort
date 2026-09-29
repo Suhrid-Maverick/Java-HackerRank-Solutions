@@ -1,0 +1,52 @@
+import java.util.*;
+
+class Student {
+    private int id;
+    private String fname;
+    private double cgpa;
+
+    Student(int id, String fname, double cgpa) {
+        this.id = id;
+        this.fname = fname;
+        this.cgpa = cgpa;
+    }
+
+    public int getId() { return id; }
+    public String getFname() { return fname; }
+    public double getCgpa() { return cgpa; }
+}
+
+class StudentComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student a, Student b) {
+        if (a.getCgpa() != b.getCgpa())
+            return Double.compare(b.getCgpa(), a.getCgpa());   // cgpa descending
+        if (!a.getFname().equals(b.getFname()))
+            return a.getFname().compareTo(b.getFname());        // name ascending
+        return Integer.compare(a.getId(), b.getId());           // id ascending
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int testCases = Integer.parseInt(in.nextLine());
+
+        List<Student> studentList = new ArrayList<>();
+        while (testCases > 0) {
+            int id = in.nextInt();
+            String fname = in.next();
+            double cgpa = in.nextDouble();
+            studentList.add(new Student(id, fname, cgpa));
+            testCases--;
+        }
+
+        Collections.sort(studentList, new StudentComparator());
+
+        for (Student st : studentList) {
+            System.out.println(st.getFname());
+        }
+
+        in.close();
+    }
+}
