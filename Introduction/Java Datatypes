@@ -1,0 +1,25 @@
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine().trim());
+        StringBuilder sb = new StringBuilder();
+
+        while (t-- > 0) {
+            String s = br.readLine().trim();
+            try {
+                long n = Long.parseLong(s);
+                sb.append(s).append(" can be fitted in:\n");
+                if (n >= Byte.MIN_VALUE && n <= Byte.MAX_VALUE) sb.append("* byte\n");
+                if (n >= Short.MIN_VALUE && n <= Short.MAX_VALUE) sb.append("* short\n");
+                if (n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) sb.append("* int\n");
+                sb.append("* long\n");
+            } catch (NumberFormatException e) {
+                sb.append(s).append(" can't be fitted anywhere.\n");
+            }
+        }
+
+        System.out.print(sb);
+    }
+}
