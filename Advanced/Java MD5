@@ -1,0 +1,19 @@
+import java.io.*;
+import java.security.MessageDigest;
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] hash = md.digest(s.getBytes("UTF-8"));
+
+        StringBuilder sb = new StringBuilder(hash.length * 2);
+        for (byte b : hash) {
+            sb.append(String.format("%02x", b));
+        }
+
+        System.out.println(sb);
+    }
+}
